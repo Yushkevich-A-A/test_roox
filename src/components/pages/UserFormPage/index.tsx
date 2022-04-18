@@ -3,27 +3,29 @@ import React, { useEffect, useState } from 'react';
 import Button from 'components/atoms/Button';
 import './style.scss';
 import Loader from 'components/atoms/Loader';
+import { FullUserCart } from 'components/organisms/FullUserCart';
+import IFullUserInformation from 'interfaces/IFullUserInformation';
+import useTypedSelector from 'hooks.ts/useTypedSelector';
+import { useDispatch } from 'react-redux';
+import { sendRequestToServerOfUserData } from 'store/userInformation/action';
 
 type TMatch = {
   params: {
     id: string,
   }
 }
-
+ 
 const UserFormPage:React.FC<{match: TMatch}> = ({ match }) => {
-  console.log('заходим в функцию')
-  const [ loading, setLoading ] = useState<boolean>(true);
-  const [ data, setData ] = useState<any[]>([]);
+  const { loading, userData } = useTypedSelector( state => state.loadUserInformation );
+const [ data, setData ] = useState<IFullUserInformation | null>(null);
+
+  const dispatch = useDispatch();
+
 
 
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
-      .then( res => res.json() )
-      .then( data => {
-        setLoading(false);
-        setData(data);
-      } );
+    dispatch(sendRequestToServerOfUserData(match.params.id))
   }, [])
 
   return (
@@ -34,6 +36,9 @@ const UserFormPage:React.FC<{match: TMatch}> = ({ match }) => {
       </div>
       {
         loading && <Loader />
+      }
+      {
+        !loading && <FullUserCart userData={userData}/>
       }
     </div>
   )

@@ -1,0 +1,37 @@
+.form-row {
+  min-width: 210px;
+  width: 50%;
+  &:nth-child( n + 2 ) {
+    margin-top: 10px;
+  }
+}
+
+.form-row-label {
+  display: block;
+  font-size: 8px;
+  margin-bottom: 3px;
+}
+
+.form-row-input, .form-row-information {
+  padding: 5px 10px;
+  border: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 10px;
+  line-height: 12px;
+  width: 100%;
+}
+
+.form-row-information {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.form-row-input {
+  &:focus {
+    border-color: #10a3ff;
+  }
+}
+
+.input-invalid {
+  border-color: #D91313;
+}

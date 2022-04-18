@@ -6,8 +6,6 @@ import UsersListPage from 'components/pages/UsersListPage';
 import UserFormPage from 'components/pages/UserFormPage';
 
 function RooxTest() {
-  
-
   return (
     <Router>
       <div className="roox-test">
