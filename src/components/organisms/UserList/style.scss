@@ -1,0 +1,13 @@
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 420px;
+  margin-top: 15px;
+}
+
+.users-list-counter {
+  text-align: end;
+  font-size: 12px;
+  line-height: 14px;
+}

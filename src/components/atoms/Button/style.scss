@@ -1,0 +1,10 @@
+.button {
+  padding: 5px 15px;
+  color: white;
+  border-radius: 5px;
+  text-transform: lowercase;
+  cursor: pointer;
+  &__default {
+    background-color: #4B51EF;
+  }
+}
