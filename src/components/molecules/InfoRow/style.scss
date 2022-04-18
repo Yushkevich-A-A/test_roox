@@ -1,16 +1,29 @@
-.form-row-comment {
+.info-row {
+  min-width: 210px;
+  width: 100%;
   &:nth-child( n + 2 ) {
     margin-top: 10px;
   }
 }
 
-.form-row-label-comment {
+.info-row-label {
   display: block;
   font-size: 8px;
   margin-bottom: 3px;
 }
 
-.form-row-input-comment, .form-row-information-comment {
+.info-row-information {
+  padding: 5px 10px;
+  border: 1px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 10px;
+  line-height: 12px;
+  width: 50%;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.info-row-information-comment {
   height: 55px;
   padding: 5px 10px;
   border: 1px solid #D8D8D8;
@@ -18,16 +31,5 @@
   border-radius: 5px;
   font-size: 10px;
   line-height: 12px;
-}
-
-.form-row-information-comment {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-.form-row-input-comment{
   width: 100%;
-  resize: none;
-  &:focus {
-    border-color: #10a3ff;
-  }
 }

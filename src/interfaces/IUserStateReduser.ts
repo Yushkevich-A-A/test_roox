@@ -3,7 +3,8 @@ import IFullUserInformation from "./IFullUserInformation";
 export interface IUserStateReduser {
   loading: boolean,
   userData: IFullUserInformation | null,
-  error: null | string
+  error: null | string,
+  edit: boolean,
 }
 
 export enum UserStateActionTypes {

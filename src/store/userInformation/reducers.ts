@@ -3,7 +3,8 @@ import { IUserStateReduser, TUserDataListAction, UserStateActionTypes } from "in
 const initUserState: IUserStateReduser = {
   loading: false,
   userData: null,
-  error: null
+  error: null,
+  edit: false,
 }
 
 function serviceLoadUserInformation (state = initUserState, action: TUserDataListAction) {
@@ -17,7 +18,8 @@ function serviceLoadUserInformation (state = initUserState, action: TUserDataLis
       const { message } = action.payload;
       return {...state, loading: false, error: message};
     case UserStateActionTypes.EDIT_USER_DATA:
-      return {...state};
+      debugger;
+      return {...state, edit: !state.edit};
     default:
       return {...state};
   }
