@@ -1,11 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
 import './style.scss';
 
 
 const CustomLink:React.FC<{id: number}> = ({id}) => {
-  const history = createBrowserHistory({forceRefresh:true});
+  const history = useHistory();
 
   const handleClick = (e:React.MouseEvent<HTMLDivElement> ) => {
     history.push(`/user/${id}`);

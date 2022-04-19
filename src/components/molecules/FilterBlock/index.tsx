@@ -3,7 +3,7 @@ import Button from 'components/atoms/Button';
 import './style.scss';
 import { useDispatch } from 'react-redux';
 import { UserSort } from 'store/usersList/action';
-import useTypedSelector from 'hooks.ts/useTypedSelector';
+import useTypedSelector from 'hooks/useTypedSelector';
 import compare from 'lib/functions/compare';
 
 export default function FilterBlock() {

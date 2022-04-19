@@ -11,7 +11,8 @@ export enum UserStateActionTypes {
   FETCH_USER_DATA = 'FETCH_USER_DATA',
   FETCH_USERS_DATA_SUCCESS = 'FETCH_USERS_DATA_SUCCESS',
   FETCH_USERS_DATA_ERROR = 'FETCH_USERS_DATA_ERROR',
-  EDIT_USER_DATA = 'EDIT_USER_DATA'
+  EDIT_USER_DATA = 'EDIT_USER_DATA',
+  RESET_USER_STATE = 'RESET_USER_STATE',
 }
 
 export interface fetchUserDataAction {
@@ -36,4 +37,8 @@ export interface editUserDataAction {
   type: UserStateActionTypes.EDIT_USER_DATA,
 }
 
-export type TUserDataListAction = fetchUserDataAction | fetchUserDataSuccessAction | fetchUserDataErrorAction | editUserDataAction
+export interface resetUserDataAction {
+  type: UserStateActionTypes.RESET_USER_STATE,
+}
+
+export type TUserDataListAction = fetchUserDataAction | fetchUserDataSuccessAction | fetchUserDataErrorAction | editUserDataAction |resetUserDataAction

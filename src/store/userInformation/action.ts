@@ -1,6 +1,5 @@
 import IFullUserInformation from "interfaces/IFullUserInformation";
-import { TUserListAction } from "interfaces/IUserListReduser";
-import { editUserDataAction, fetchUserDataAction, fetchUserDataErrorAction, fetchUserDataSuccessAction, TUserDataListAction, UserStateActionTypes } from "interfaces/IUserStateReduser";
+import { editUserDataAction, fetchUserDataAction, fetchUserDataErrorAction, fetchUserDataSuccessAction, resetUserDataAction, TUserDataListAction, UserStateActionTypes } from "interfaces/IUserStateReduser";
 import { Dispatch } from "redux";
 
 export const fetchUserData = (): fetchUserDataAction => {
@@ -17,6 +16,10 @@ export const fetchUserDataError = (message: string): fetchUserDataErrorAction =>
 
 export const editUserData = (): editUserDataAction => {
   return { type: UserStateActionTypes.EDIT_USER_DATA }
+}
+
+export const resetUserData = (): resetUserDataAction => {
+  return { type: UserStateActionTypes.RESET_USER_STATE }
 }
 
 export const sendRequestToServerOfUserData = (id: string) =>  async (dispatch: Dispatch<TUserDataListAction>, getState: any) => {

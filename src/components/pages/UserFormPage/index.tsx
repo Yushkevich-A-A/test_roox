@@ -1,11 +1,10 @@
 import TitlePage from 'components/atoms/TitlePage';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Button from 'components/atoms/Button';
 import './style.scss';
 import Loader from 'components/atoms/Loader';
 import { FullUserCart } from 'components/organisms/FormUserCart';
-import IFullUserInformation from 'interfaces/IFullUserInformation';
-import useTypedSelector from 'hooks.ts/useTypedSelector';
+import useTypedSelector from 'hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { editUserData, sendRequestToServerOfUserData } from 'store/userInformation/action';
 import { VisiableUserCart } from 'components/organisms/VisiableUserCart';
@@ -18,12 +17,12 @@ type TMatch = {
  
 const UserFormPage:React.FC<{match: TMatch}> = ({ match }) => {
   const { loading, userData, edit } = useTypedSelector( state => state.loadUserInformation );
-const [ data, setData ] = useState<IFullUserInformation | null>(null);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(sendRequestToServerOfUserData(match.params.id))
+    dispatch(sendRequestToServerOfUserData(match.params.id));
+    // eslint-disable-next-line
   }, [])
 
   const toggleClick = ():void => {
@@ -40,10 +39,10 @@ const [ data, setData ] = useState<IFullUserInformation | null>(null);
         loading && <Loader />
       }
       {
-        edit && userData !== null && <FullUserCart userData={userData}/>
+        !loading && edit && userData !== null && <FullUserCart userData={userData}/>
       }
       {
-        !edit && <VisiableUserCart userData={userData}/>
+        !loading && !edit && <VisiableUserCart userData={userData}/>
       }
     </div>
   )

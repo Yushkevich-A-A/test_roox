@@ -18,7 +18,8 @@ function serviceLoadUserInformation (state = initUserState, action: TUserDataLis
       const { message } = action.payload;
       return {...state, loading: false, error: message};
     case UserStateActionTypes.EDIT_USER_DATA:
-      debugger;
+      return {...state, edit: !state.edit};
+    case UserStateActionTypes.RESET_USER_STATE:
       return {...state, edit: !state.edit};
     default:
       return {...state};
